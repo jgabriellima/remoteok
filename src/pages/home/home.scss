@@ -1,0 +1,28 @@
+page-home {
+
+}
+
+.job-title{white-space: normal;}
+
+.card-content{
+  padding-bottom:0px!important;
+}
+
+img{
+  border:1px solid grey;
+}
+
+
+.toolbar-background{
+  background-image: url(./../assets/icon/logo_remoteok.png);
+  background-repeat: no-repeat;
+  //background-size: contain;
+  background-size: 10em;
+  background-position: center;
+  background-color: white;
+}
+
+.content{
+  background: url(./../assets/icon/bg.jpg) no-repeat center center fixed;
+  background-size: cover;
+}

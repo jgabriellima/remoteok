@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-row justify-content-start *ngIf="jobs.length>0">
+    <ion-col col-12>
+      <ion-badge>Temos {{count}} Jobs pra você</ion-badge>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-card *ngFor="let j of jobs">
+
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="{{j.logo}}">
+      </ion-avatar>
+      <ion-note>
+        {{convert(j.date)}}
+      </ion-note>
+      <h2 class="job-title">{{j.position}}</h2>
+      <p>{{j.company}}</p>
+    </ion-item>
+
+    <ion-card-content>
+      <p (click)="detail(j)" innerHTML = "{{ splitText(j.description) }}"></p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col offset-6>
+        <button ion-button clear>
+          <ion-icon name="share"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button clear>
+          <ion-icon name="bookmark"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+  <ion-infinite-scroll (ionInfinite)="loadJobs($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
